@@ -1,0 +1,6 @@
+<h2>Edit Student</h2>
+<app-add-edit-student-details
+  [mode]="edit"
+  [studentDetails]="existingStudentDetails"
+  (formSubmit)="editStudent($event)"
+/>

@@ -1,0 +1,17 @@
+<form [formGroup]="formGroup">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>{{ label }}</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      (focus)="onDateInputFocus()"
+      [formControlName]="controlName"
+      [min]="min"
+      [max]="max"
+      readonly
+    />
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <app-error-message [formGroup]="formGroup" [controlName]="controlName" />
+</form>

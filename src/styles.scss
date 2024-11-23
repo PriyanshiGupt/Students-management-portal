@@ -1,4 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@include mat.core();
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+    --color-primary: #1976d2;
+}
+.custom-dialog {
+    .mat-mdc-dialog-title {
+        background-color: var(--color-primary);
+        color: white!important;
+        // --mdc-dialog-container-color: #015945;
+    }
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+
+.m-5 {
+    margin: 5px;
+}
+
+.full-width {
+    width: 100%;
+}

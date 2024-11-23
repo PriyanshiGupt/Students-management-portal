@@ -1,0 +1,31 @@
+<form>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>{{label}}</mat-label>
+      <mat-chip-grid #chipGrid aria-label="Fruit selection">
+        @for (option of selectedOptions; track option) {
+          <mat-chip-row (removed)="remove(option)">
+            {{option}}
+            <button matChipRemove [attr.aria-label]="'remove ' + option">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+        }
+      </mat-chip-grid>
+      <input
+        #chipInput
+        [placeholder]="placeholder"
+        [formControl]="chipInputControl"
+        [matChipInputFor]="chipGrid"
+        [matAutocomplete]="auto"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="inputTokenEnded($event)"
+        (keydown.enter)="$event.preventDefault()"
+      />
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="optionSelected($event)">
+        @for (option of filteredOptions; track option) {
+          <mat-option [value]="option">{{option}}</mat-option>
+        }
+      </mat-autocomplete>
+    </mat-form-field>
+    <app-error-message [formGroup]="formGroup" [controlName]="controlName"/>
+  </form>

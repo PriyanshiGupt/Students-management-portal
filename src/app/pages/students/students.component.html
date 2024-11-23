@@ -1,0 +1,5 @@
+<div class="flex-reverse">
+    <app-button class="button" label="Add Student" (click)="addStudent()" />
+</div>
+
+<app-student-details-table [studentsData]="(students$ | async) ?? []" (deleteStudent)="deleteStudent($event)"/>

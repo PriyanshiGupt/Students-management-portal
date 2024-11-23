@@ -1,0 +1,15 @@
+@if(iconOnly) {
+    <button mat-icon-button [type]="type" [disabled]="disabled">
+        <mat-icon>{{icon}}</mat-icon>
+    </button>
+} @else {
+    <button mat-flat-button [type]="type" [disabled]="disabled" [ngClass]="{ 'mat-secondary' : buttonSecondary}">
+        @if(icon) {
+            <mat-icon>{{icon}}</mat-icon>
+        }
+        @if(label) {
+            {{label}}
+        }
+    </button>
+    
+}

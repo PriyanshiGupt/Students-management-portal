@@ -1,0 +1,24 @@
+<!-- <mat-dialog-container> -->
+
+    <h2 mat-dialog-title>Confirmation Required!</h2>
+    <mat-dialog-content class="dialog-content">
+        <h4 class="confirmation-message">
+            {{message}}
+        </h4>
+        <div class="display-details">
+            <table>
+                @for(detail of details; track detail.key) {
+                   <tr>
+                    <td>{{detail.key}}</td>
+                    <td>:</td>
+                    <td>{{detail.value}}</td>
+                   </tr> 
+                }
+            </table>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <app-button label="Cancel" [buttonSecondary]="true" (click)="closeDialog(false)" class="mr-10"/>
+        <app-button label="Continue" (click)="closeDialog(true)" />
+    </mat-dialog-actions>
+<!-- </mat-dialog-container> -->

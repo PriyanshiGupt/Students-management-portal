@@ -1,0 +1,39 @@
+<form [formGroup]="studentForm" (ngSubmit)="AddUpdateStudent()">
+  <app-input label="Name" [formGroup]="studentForm" controlName="name" />
+  <app-input label="Email" [formGroup]="studentForm" controlName="email" />
+  <app-datepicker
+    label="Date of Birth"
+    [formGroup]="studentForm"
+    controlName="dob"
+    [max]="today"
+  />
+  <app-input
+    label="Address"
+    [formGroup]="studentForm"
+    controlName="address"
+    type="textarea"
+  />
+  <app-radio
+    label="Gender"
+    [formGroup]="studentForm"
+    controlName="gender"
+    [options]="GenderOptions"
+  />
+  <app-select
+    label="Standard"
+    [formGroup]="studentForm"
+    controlName="standard"
+    [options]="StandardOptions"
+  />
+  <app-multi-input-autocomplete
+    label="Subjects"
+    [formGroup]="studentForm"
+    controlName="subjects"
+    [options]="SubjectOptions"
+  />
+  <app-button
+    class="mb-50"
+    type="submit"
+    [label]="(mode === PAGE_MODE.ADD ? 'Add' : 'Edit') + ' Student'"
+  />
+</form>

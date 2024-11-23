@@ -1,0 +1,12 @@
+<form [formGroup]="formGroup">
+    <div class="field-wrapper">
+      <mat-label>{{label}}</mat-label>
+      <mat-radio-group
+        [formControlName]="controlName">
+        @for (option of options; track $index) {
+          <mat-radio-button [value]="option">{{option}}</mat-radio-button>
+        }
+      </mat-radio-group>
+    </div>
+    <app-error-message [formGroup]="formGroup" [controlName]="controlName"/>
+</form>

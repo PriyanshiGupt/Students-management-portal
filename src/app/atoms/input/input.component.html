@@ -1,0 +1,11 @@
+<form [formGroup]="formGroup">
+	<mat-form-field appearance="outline" class="full-width">
+		<mat-label>{{label}}</mat-label>
+		@if(type === 'textarea') {
+			<textarea matInput [formControlName]="controlName" [placeholder]="placeholder" [rows]="4"></textarea>
+		}@else {
+			<input matInput [formControlName]="controlName" [placeholder]="placeholder"/>
+		}
+	</mat-form-field>
+	<app-error-message [formGroup]="formGroup" [controlName]="controlName"/>
+</form>
